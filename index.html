@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Pathfinder</title>
+</head>
+
+
+<body>
+    <link rel="stylesheet" href="style.css">
+
+    <header>
+        <select id="algorithm-menu">
+            <option value="dijkstra" selected>Dijkstra</option>
+            <option value="a*">A*</option>
+            <option value="d*">D*</option>
+        </select>
+        <input type="checkbox" id="diagonal">Can move diagonally?</input>
+        <input type="range" id="speed" min="0" max="100" value="50">Speed</input>
+        <input type="radio" id="empty" name="rad">Empty</input>
+        <input type="radio" id="wall" name="rad" checked>Wall</input>
+        <input type="radio" id="start" name="rad">Start</input>
+        <input type="radio" id="finish" name="rad">Finish</input>
+        <button type="button" onclick="Maze.clear(false);">Clear</button>
+        <button type="button" onclick="Maze.createMaze();">Random Maze</button>
+        <button type="button" onclick="Maze.solve();">Start</button>
+    </header>
+
+    <div id="grid-container">
+        <div id="grid">
+            <!-- Cells are appended here -->
+        </div>
+    </div>
+
+    <script src="Algorithm.js"></script>
+    <script src="Dijkstra.js"></script>
+    <script src="Astar.js"></script>
+    <script src="Node.js"></script>
+    <script src="Queue.js"></script>
+    <script src="Grid.js"></script>
+    <script src="Cell.js"></script>
+    <script src="Mouse.js"></script>
+    <script>
+        Maze.init();
+    </script>
+</body>
+
+</html>
