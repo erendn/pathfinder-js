@@ -11,7 +11,9 @@
   * D*
   * Breadth-First Search (BFS)
   * Depth-First Search (DFS)
+* Checkpoints
 * Better animations
+* Better menu
 * Adjustable grid size
 
 ## What I Learned
