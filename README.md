@@ -1,9 +1,18 @@
 # Pathfinder
 ## Features
 * Pathfinding simulator
+* Random maze creation
 * Algorithms:
   * Dijkstra
   * A*
+
+## Features To Be Added
+* Algorithms:
+  * D*
+  * Breadth-First Search (BFS)
+  * Depth-First Search (DFS)
+* Better animations
+* Adjustable grid size
 
 ## What I Learned
 * Pathfinding algorithms
