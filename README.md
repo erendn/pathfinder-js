@@ -2,8 +2,8 @@
 ## Features
 * Pathfinding simulator
 * Algorithms:
-* - Dijkstra
-* - A*
+  * Dijkstra
+  * A*
 
 ## What I Learned
 * Pathfinding algorithms
