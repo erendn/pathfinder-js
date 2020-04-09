@@ -41,7 +41,7 @@ Astar.prototype.solve = async function () {
         }
         speed = document.getElementById('speed').value;
         if (speed > 0)
-            await new Promise(r => setTimeout(r, document.getElementById('speed').value));
+            await new Promise(r => setTimeout(r, speed));
     }
     current = this.table[this.finish];
     while (current.prev != null) {

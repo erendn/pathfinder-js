@@ -13,13 +13,19 @@
             <option value="dijkstra" selected>Dijkstra</option>
             <option value="a*">A*</option>
             <option value="d*">D*</option>
+            <option value="bfs">Breadth-First Search</option>
+            <option value="dfs">Depth-First Search</option>
         </select>
+        
         <input type="checkbox" id="diagonal">Can move diagonally?</input>
+
         <input type="range" id="speed" min="0" max="100" value="50">Speed</input>
+
         <input type="radio" id="empty" name="rad">Empty</input>
         <input type="radio" id="wall" name="rad" checked>Wall</input>
         <input type="radio" id="start" name="rad">Start</input>
         <input type="radio" id="finish" name="rad">Finish</input>
+
         <button type="button" onclick="Maze.clear(false);">Clear</button>
         <button type="button" onclick="Maze.createMaze();">Random Maze</button>
         <button type="button" onclick="Maze.solve();">Start</button>
@@ -31,7 +37,6 @@
         </div>
     </div>
 
-    <script src="Algorithm.js"></script>
     <script src="Dijkstra.js"></script>
     <script src="Astar.js"></script>
     <script src="Node.js"></script>
