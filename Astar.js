@@ -27,10 +27,11 @@ Astar.prototype.solve = async function () {
                     row = current.row + x;
                     col = current.col + j;
                     if (Maze.isInMaze(row, col) && !this.table[row * Maze.col + col].found && Maze.cells[row][col].type != 'wall') {
-                        if(this.table[row * Maze.col + col].distance == null){
-                            this.table[row * Maze.col + col].g = Math.hypot(row - this.table[this.start].row, col - this.table[this.start].col);
-                            this.table[row * Maze.col + col].h = Math.hypot(row - this.table[this.finish].row, col - this.table[this.finish].col);
-                            this.table[row * Maze.col + col].distance = this.table[row * Maze.col + col].g + this.table[row * Maze.col + col].h;
+                        gcost = current.gcost + Math.hypot(row - current.row, col - current.col);
+                        if (this.table[row * Maze.col + col].distance == null || this.table[row * Maze.col + col].gcost > gcost) {
+                            this.table[row * Maze.col + col].gcost = gcost;
+                            this.table[row * Maze.col + col].hcost = Math.hypot(row - this.table[this.finish].row, col - this.table[this.finish].col);
+                            this.table[row * Maze.col + col].distance = this.table[row * Maze.col + col].gcost + this.table[row * Maze.col + col].hcost;
                             this.table[row * Maze.col + col].prev = current;
                             this.next.enqueue(this.table[row * Maze.col + col]);
                             Maze.cells[row][col].setAnimate('search');
