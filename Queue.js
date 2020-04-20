@@ -7,7 +7,7 @@ Queue.prototype.enqueue = function (node) {
         this.list.push(node);
         return;
     }
-    index = this.list.indexOf(node);
+    var index = this.list.indexOf(node);
     if (index != -1) {
         this.list.splice(index, 1);
     }

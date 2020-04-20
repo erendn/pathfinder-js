@@ -5,6 +5,7 @@ function Grid() {
     this.solving = false;
     this.startCount = 0;
     this.finishCount = 0;
+    this.checkpointCount = 0;
 }
 
 Grid.prototype.init = function () {
@@ -24,10 +25,10 @@ Grid.prototype.init = function () {
 }
 
 Grid.prototype.createCells = function () {
-    cells = [];
-    for (i = 0; i < this.row; i++) {
+    var cells = [];
+    for (var i = 0; i < this.row; i++) {
         cells[i] = [];
-        for (j = 0; j < this.col; j++) {
+        for (var j = 0; j < this.col; j++) {
             cells[i][j] = new Cell(i, j);
         }
     }
@@ -35,8 +36,8 @@ Grid.prototype.createCells = function () {
 }
 
 Grid.prototype.clear = function (onlyAnimate) {
-    for (i = 0; i < this.row; i++) {
-        for (j = 0; j < this.col; j++) {
+    for (var i = 0; i < this.row; i++) {
+        for (var j = 0; j < this.col; j++) {
             this.cells[i][j].setAnimate('none');
             if (!onlyAnimate)
                 this.cells[i][j].setType('empty');
@@ -50,9 +51,9 @@ Grid.prototype.solve = function () {
     else if (this.finishCount == 0)
         alert("There must be a finish point.");
     else {
-        menu = document.getElementById('algorithm-menu');
-        selectedAlgo = menu.options[menu.selectedIndex].value;
-        algo = null;
+        var menu = document.getElementById('algorithm-menu');
+        var selectedAlgo = menu.options[menu.selectedIndex].value;
+        var algo = null;
         if (selectedAlgo == "dijkstra") {
             algo = new Dijkstra();
         } else if (selectedAlgo == "a*") {
@@ -66,21 +67,21 @@ Grid.prototype.solve = function () {
 }
 
 Grid.prototype.createMaze = async function () {
-    for (i = 0; i < this.row; i++) {
-        for (j = 0; j < this.col; j++) {
+    for (var i = 0; i < this.row; i++) {
+        for (var j = 0; j < this.col; j++) {
             this.cells[i][j].setType(i % 2 == 0 && j % 2 == 0 ? 'unconnected' : 'wall');
             this.cells[i][j].setAnimate('none');
         }
     }
-    unconnected = [this.cells[parseInt(Math.random() * parseInt(this.row / 2)) * 2][parseInt(Math.random() * parseInt(this.col / 2)) * 2]];
+    var unconnected = [this.cells[parseInt(Math.random() * parseInt(this.row / 2)) * 2][parseInt(Math.random() * parseInt(this.col / 2)) * 2]];
     while (unconnected.length > 0) {
-        cell = unconnected.splice(parseInt(Math.random() * unconnected.length), 1)[0];
+        var cell = unconnected.splice(parseInt(Math.random() * unconnected.length), 1)[0];
         cell.setType('empty');
-        connected = [];
-        for (i = 0; i < 2; i++) {
-            for (j = -2; j <= 2; j += 4) {
-                row = cell.row + (i == 0 ? 0 : j);
-                col = cell.col + (i == 0 ? j : 0);
+        var connected = [];
+        for (var i = 0; i < 2; i++) {
+            for (var j = -2; j <= 2; j += 4) {
+                var row = cell.row + (i == 0 ? 0 : j);
+                var col = cell.col + (i == 0 ? j : 0);
                 if (this.isInMaze(row, col)) {
                     if (this.cells[row][col].type == 'unconnected') {
                         if (!unconnected.includes(this.cells[row][col])) {
@@ -93,7 +94,7 @@ Grid.prototype.createMaze = async function () {
             }
         }
         if (connected.length > 0) {
-            neighbour = connected[parseInt(Math.random() * connected.length)];
+            var neighbour = connected[parseInt(Math.random() * connected.length)];
             this.cells[(cell.row + neighbour.row) / 2][(cell.col + neighbour.col) / 2].setType('empty');
         }
     }
@@ -103,6 +104,18 @@ Grid.prototype.createMaze = async function () {
 
 Grid.prototype.isInMaze = function (row, col) {
     return row >= 0 && row < this.row && col >= 0 && col < this.col;
+}
+
+Grid.prototype.updateCheckpoints = function (start) {
+    for (var i = 0; i < this.row; i++) {
+        for (var j = 0; j < this.col; j++) {
+            var cell = this.cells[i][j];
+            if (cell.type.startsWith('checkpoint') && parseInt(cell.type.substring(11)) > start) {
+                cell.type = 'checkpoint-' + (parseInt(cell.type.substring(11)) - 1);
+                cell.cell.innerHTML = "C" + cell.type.substring(11);
+            }
+        }
+    }
 }
 
 let Maze = new Grid();

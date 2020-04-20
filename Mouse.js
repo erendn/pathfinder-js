@@ -22,6 +22,8 @@ function checkedRadio(){
         return 'start';
     if(document.getElementById('finish').checked)
         return 'finish';
+    if(document.getElementById('checkpoint').checked)
+        return 'checkpoint';
     return 'empty';    
 }
 
