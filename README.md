@@ -2,6 +2,7 @@
 ## Features
 * Pathfinding simulator
 * Random maze creation
+* Checkpoints
 * Algorithms:
   * Dijkstra
   * A*
@@ -11,7 +12,6 @@
   * D*
   * Breadth-First Search (BFS)
   * Depth-First Search (DFS)
-* Checkpoints
 * Better animations
 * Better menu
 * Adjustable grid size
