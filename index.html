@@ -5,7 +5,7 @@
 </head>
 
 
-<body>
+<body onload="Maze.init()">
     <link rel="stylesheet" href="style.css">
 
     <header>
@@ -16,7 +16,7 @@
             <option value="bfs">Breadth-First Search</option>
             <option value="dfs">Depth-First Search</option>
         </select>
-        
+
         <input type="checkbox" id="diagonal">Can move diagonally?</input>
 
         <input type="range" id="speed" min="0" max="100" value="50">Speed</input>
@@ -27,7 +27,8 @@
         <input type="radio" id="finish" name="rad">Finish</input>
         <input type="radio" id="checkpoint" name="rad">Checkpoint</input>
 
-        <button type="button" onclick="Maze.clear(false);">Clear</button>
+        <button type="button" onclick="Maze.clear(false);">Clear All</button>
+        <button type="button" onclick="Maze.clear(true);">Clear Progress</button>
         <button type="button" onclick="Maze.createMaze();">Random Maze</button>
         <button type="button" onclick="Maze.solve();">Start</button>
     </header>
@@ -38,17 +39,17 @@
         </div>
     </div>
 
-    <script src="Algorithm.js"></script>
-    <script src="Dijkstra.js"></script>
-    <script src="Astar.js"></script>
-    <script src="Node.js"></script>
-    <script src="Queue.js"></script>
-    <script src="Grid.js"></script>
-    <script src="Cell.js"></script>
-    <script src="Mouse.js"></script>
-    <script>
-        Maze.init();
-    </script>
+    <script src="src/algorithms/Algorithm.js"></script>
+    <script src="src/algorithms/Dijkstra.js"></script>
+    <script src="src/algorithms/Astar.js"></script>
+    <script src="src/algorithms/BFS.js"></script>
+    <script src="src/algorithms/DFS.js"></script>
+    <script src="src/Node.js"></script>
+    <script src="src/Queue.js"></script>
+    <script src="src/Grid.js"></script>
+    <script src="src/Cell.js"></script>
+    <script src="src/Mouse.js"></script>
+
 </body>
 
 </html>

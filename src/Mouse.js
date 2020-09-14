@@ -7,6 +7,9 @@ function MouseHandler() {
     document.onmouseup = mouseUp;
 }
 
+/**
+ * Calculates the mouse position on the grid and places the cell type.
+ */
 MouseHandler.prototype.trigger = function () {
     Maze.size = Maze.cells[0][0].cell.offsetWidth;
     if (!Maze.solving && this.y > 0 && this.y < Maze.size * Maze.cells.length) {
@@ -15,6 +18,9 @@ MouseHandler.prototype.trigger = function () {
 
 }
 
+/**
+ * Returns the checked radio value in the page.
+ */
 function checkedRadio(){
     if(document.getElementById('wall').checked)
         return 'wall';

@@ -2,6 +2,10 @@ function Queue() {
     this.list = [];
 }
 
+/**
+ * Adds the node given to the queue according to its distance attribute in a descending order.
+ * @param {Node} node Node to be added to the queue.
+ */
 Queue.prototype.enqueue = function (node) {
     if (this.list.length == 0) {
         this.list.push(node);
@@ -25,6 +29,9 @@ Queue.prototype.enqueue = function (node) {
     }
 }
 
+/**
+ * Removes and returns the first element in the queue.
+ */
 Queue.prototype.dequeue = function () {
     return this.list.splice(0, 1)[0];
 }

@@ -8,6 +8,9 @@ function Grid() {
     this.checkpointCount = 0;
 }
 
+/**
+ * Creates and appends grid cells to the page.
+ */
 Grid.prototype.init = function () {
     this.parent = document.getElementById('grid');
     for (i = 0; i < this.row; i++) {
@@ -24,6 +27,9 @@ Grid.prototype.init = function () {
     this.cells = this.createCells();
 }
 
+/**
+ * Creates cell objects according to the row and column sizes.
+ */
 Grid.prototype.createCells = function () {
     var cells = [];
     for (var i = 0; i < this.row; i++) {
@@ -35,6 +41,10 @@ Grid.prototype.createCells = function () {
     return cells;
 }
 
+/**
+ * Sets the animate attribute of all cells to 'empty'.
+ * @param {*} onlyAnimate 
+ */
 Grid.prototype.clear = function (onlyAnimate) {
     for (var i = 0; i < this.row; i++) {
         for (var j = 0; j < this.col; j++) {
@@ -45,6 +55,9 @@ Grid.prototype.clear = function (onlyAnimate) {
     }
 }
 
+/**
+ * Calls the solve function of the selected pathfinding algorithm.
+ */
 Grid.prototype.solve = function () {
     if (this.startCount == 0)
         alert("There must be a start point.");
@@ -58,6 +71,12 @@ Grid.prototype.solve = function () {
             algo = new Dijkstra();
         } else if (selectedAlgo == "a*") {
             algo = new Astar();
+        } else if (selectedAlgo == "d*") {
+            algo = new Dstar();
+        } else if (selectedAlgo == "bfs") {
+            algo = new BFS();
+        } else if (selectedAlgo == "dfs") {
+            algo = new DFS();
         } else {
             alert("Error! Chosen algorithm is not implemented.");
         }
@@ -66,6 +85,9 @@ Grid.prototype.solve = function () {
     }
 }
 
+/**
+ * Creates a random maze on the grid.
+ */
 Grid.prototype.createMaze = async function () {
     for (var i = 0; i < this.row; i++) {
         for (var j = 0; j < this.col; j++) {
@@ -102,10 +124,19 @@ Grid.prototype.createMaze = async function () {
     this.cells[this.row - 1][this.col - 1].setType('finish');
 }
 
+/**
+ * Checks if a cell is in the maze. Used to prevent "Out Of Bounds" errors.
+ * @param {*} row 
+ * @param {*} col 
+ */
 Grid.prototype.isInMaze = function (row, col) {
     return row >= 0 && row < this.row && col >= 0 && col < this.col;
 }
 
+/**
+ * Updates the checkpoint texts. When a checkpoint is deleted, added or updated other checkpoints might change.
+ * @param {*} start 
+ */
 Grid.prototype.updateCheckpoints = function (start) {
     for (var i = 0; i < this.row; i++) {
         for (var j = 0; j < this.col; j++) {

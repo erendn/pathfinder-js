@@ -6,6 +6,10 @@ function Cell(row, col) {
     this.animate = 'none';
 }
 
+/**
+ * Sets the type attribute. Also updates the background color of the cell.
+ * @param {*} type 
+ */
 Cell.prototype.setType = function (type) {
     if ((type != 'start' && type != 'finish') || (type == 'start' && !Maze.startCount) || (type == 'finish' && !Maze.finishCount)) {
         if (this.type == 'start')
@@ -31,11 +35,18 @@ Cell.prototype.setType = function (type) {
     }
 }
 
+/**
+ * Sets the animate attribute. Also updates the background color of the cell.
+ * @param {*} animate 
+ */
 Cell.prototype.setAnimate = function (animate) {
     this.animate = animate;
     this.updateColor();
 }
 
+/**
+ * Updates the background color of the cell according to its type and animate attributes.
+ */
 Cell.prototype.updateColor = function () {
     if (this.type == 'wall') {
         this.cell.style.backgroundColor = wallColor;

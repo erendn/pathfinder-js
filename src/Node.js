@@ -1,4 +1,4 @@
-function Node(row, col){
+function Node(row, col) {
     this.row = row;
     this.col = col;
     this.found = false;
