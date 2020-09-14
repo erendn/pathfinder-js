@@ -12,11 +12,6 @@
 ## Features To Be Added
 * Algorithms:
   * D*
-<<<<<<< Updated upstream
-  * Breadth-First Search (BFS)
-  * Depth-First Search (DFS)
-=======
->>>>>>> Stashed changes
 * Better animations
 * Better menu
 * Adjustable grid size
