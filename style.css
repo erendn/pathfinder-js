@@ -42,7 +42,7 @@ header {
 .cell-inside {
     width: 100%;
     background-color: #d1d1d1;
-    border: 1px solid black;
+    border: 1px solid d1d1d1;
     display: flex;
     justify-content: center;
     align-items: center;

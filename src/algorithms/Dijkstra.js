@@ -40,8 +40,8 @@ class Dijkstra extends Algorithm {
                     }
                 }
                 var speed = document.getElementById('speed').value;
-                if (speed > 0)
-                    await new Promise(r => setTimeout(r, speed));
+                if (speed < 100)
+                    await new Promise(r => setTimeout(r, 100 - speed));
             }
             current = this.table[this.finish[0]];
             var currentPath = [];
