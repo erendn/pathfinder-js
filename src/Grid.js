@@ -72,7 +72,8 @@ Grid.prototype.solve = function () {
         } else if (selectedAlgo == "a*") {
             algo = new Astar();
         } else if (selectedAlgo == "d*") {
-            algo = new Dstar();
+            // algo = new Dstar();
+            alert("Error! Chosen algorithm is not implemented.");
         } else if (selectedAlgo == "bfs") {
             algo = new BFS();
         } else if (selectedAlgo == "dfs") {

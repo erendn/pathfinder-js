@@ -6,6 +6,15 @@ function Cell(row, col) {
     this.animate = 'none';
 }
 
+const emptyColor = '#d1d1d1';
+const wallColor = '#636363';
+const startColor = '#fc473a';
+const finishColor = '#43a827';
+const checkpointColor = '#ad22d4';
+const searchColor = '#34b7eb';
+const foundColor = '#043a8a';
+const revealColor = '#cccc16';
+
 /**
  * Sets the type attribute. Also updates the background color of the cell.
  * @param {*} type 
@@ -68,12 +77,3 @@ Cell.prototype.updateColor = function () {
             this.cell.style.backgroundColor = revealColor;
     }
 }
-
-let emptyColor = '#d1d1d1';
-let wallColor = '#636363';
-let startColor = '#fc473a';
-let finishColor = '#43a827';
-let checkpointColor = '#ad22d4';
-let searchColor = '#34b7eb';
-let foundColor = '#043a8a';
-let revealColor = '#cccc16';

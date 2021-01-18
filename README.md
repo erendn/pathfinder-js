@@ -1,4 +1,7 @@
 # Pathfinder
+
+## [Website](https://biarmic.github.io/pathfinder-js/)
+
 ## Features
 * Pathfinding visualizer
 * Random maze creation
@@ -21,8 +24,6 @@
 * HTML
 * JavaScript
 * CSS
-
-## [Demo](https://biarmic.github.io/pathfinder-js/)
 <!---
 ## Screenshots
 ![screenshot](screenshot-1.png "In-game")

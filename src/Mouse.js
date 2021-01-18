@@ -21,16 +21,16 @@ MouseHandler.prototype.trigger = function () {
 /**
  * Returns the checked radio value in the page.
  */
-function checkedRadio(){
-    if(document.getElementById('wall').checked)
+function checkedRadio() {
+    if (document.getElementById('wall').checked)
         return 'wall';
-    if(document.getElementById('start').checked)
+    if (document.getElementById('start').checked)
         return 'start';
-    if(document.getElementById('finish').checked)
+    if (document.getElementById('finish').checked)
         return 'finish';
-    if(document.getElementById('checkpoint').checked)
+    if (document.getElementById('checkpoint').checked)
         return 'checkpoint';
-    return 'empty';    
+    return 'empty';
 }
 
 function mouseMove(event) {
