@@ -1,6 +1,6 @@
 # Pathfinder
 
-## [Website](https://biarmic.github.io/pathfinder-js/)
+## [Website](https://erendo.github.io/pathfinder-js/)
 
 ## Features
 * Pathfinding visualizer
