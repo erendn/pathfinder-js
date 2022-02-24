@@ -1,6 +1,6 @@
 # Pathfinder
 
-## [Website](https://erendo.github.io/pathfinder-js/)
+## [Website](https://erendn.github.io/pathfinder-js/)
 
 ## Features
 * Pathfinding visualizer
